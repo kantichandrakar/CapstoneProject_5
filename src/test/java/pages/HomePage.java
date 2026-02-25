@@ -28,7 +28,7 @@ public class HomePage extends BaseTest {
 
     public void mouseOverAndClickGetWordPress() throws InterruptedException{
         Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(downloadExtend)).perform();
+        actions.moveToElement(driver.findElement(downloadExtend)).click().perform();
         Thread.sleep(3000);
         driver.findElement(getWordPress).click();
     }
