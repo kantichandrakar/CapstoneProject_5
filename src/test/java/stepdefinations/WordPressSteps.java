@@ -15,7 +15,7 @@ public class WordPressSteps extends BaseTest {
 
     @Given("User launches WordPress website")
     public void launchWebsite() {
-        setup();
+
         home = new HomePage(driver);
         getPage = new GetWordPressPage(driver);
         photoPage = new PhotoDirectoryPage(driver);
@@ -43,14 +43,15 @@ public class WordPressSteps extends BaseTest {
         home.clickPhotoDirectory();
     }
 
-    @And("User searches image")
-    public void searchImage() {
-        photoPage.searchImage("Rose");
+
+
+    @And("User searches image {string}")
+    public void searchImage(String imageName) {
+        photoPage.searchImage(imageName);
     }
 
     @Then("Verify images displayed")
     public void verifyImages() {
         Assert.assertTrue(photoPage.getImageCount() > 0);
-        close();
     }
 }
